@@ -80,7 +80,12 @@ namespace Pong
 			{
 				if (data.TrackingState == SkeletonTrackingState.Tracked)
 				{
-					int handY = (int) data.Joints[JointID.HandLeft].ScaleTo(kGameWidth, kGameHeight - kPaddleHeight, 0.6f, 0.4f).Position.Y;
+					Joint joint = data.Joints[JointID.HandLeft];
+					
+					if (joint.TrackingState != JointTrackingState.Tracked)
+						break;
+					
+					int handY = (int) joint.ScaleTo(kGameWidth, kGameHeight - kPaddleHeight, 0.6f, 0.4f).Position.Y;
 					handY = Math.Max(handY, 0);
 					handY = Math.Min(handY, kGameHeight - kPaddleHeight);
 					ourPaddleRect.Y = handY;
@@ -154,7 +159,7 @@ namespace Pong
 				velocity.X *= -1;
 				collision = BallCollision.LeftPaddle;
 			}
-			else if (enclosingRect.X >= GraphicsDevice.Viewport.Width - kLRMargin)
+			else if (enclosingRect.X >= GraphicsDevice.Viewport.Width - kBallWidth)
 			{
 				collision = BallCollision.RightMiss;
 			}
