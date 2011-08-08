@@ -1,0 +1,8 @@
+KinectPong
+==========
+
+KinectPong is a Kinect-enabled clone of the original Pong game written on top of the [XNA](http://en.wikipedia.org/wiki/Microsoft_XNA) framework. The official [Kinect for Windows SDK](http://research.microsoft.com/en-us/um/redmond/projects/kinectsdk/) from Microsoft Research makes implementing Natural User Interfaces really fun, and KinectPong is a testament to its power.
+
+To try KinectPong, download and run one of the latest binaries from the [Downloads](https://github.com/mattrajca/KinectPong/downloads) page on github. Be sure the Kinect SDK is installed on your computer. Once KinectPong is up and running, stand in the center of the Kinect sensor's point-of-view. As you move your left hand up and down, your virtual paddle will move accordingly.
+
+The default velocity of the ball in the game is on the slower side to make it easier to get used to these means of interaction. The angle at which balls bounce off the paddles is also random, but it appears the original Pong game worked the same way.
